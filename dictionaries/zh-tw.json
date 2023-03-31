@@ -1,5 +1,6 @@
 {
     "products": {
       "cart": "加至購物車"
-    }
+    },
+    "locale": {"lang": "繁體中文","code": "zh-tw"}
   }

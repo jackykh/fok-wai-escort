@@ -1,5 +1,4 @@
-import { getDictionary } from "./dictionaries";
-import ClientComponent from "./ClientComponent";
+import { getDictionary } from "@/dictionaries/dictionaries";
 
 export default async function Home({ params }: { params: { lang: string } }) {
   const lang = params.lang;
@@ -7,7 +6,6 @@ export default async function Home({ params }: { params: { lang: string } }) {
   return (
     <div>
       <p>{dict.products.cart}</p>
-      <ClientComponent lang={lang} />
     </div>
   );
 }
