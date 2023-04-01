@@ -2,7 +2,7 @@
 
 import { useTheme as useNextTheme } from "next-themes";
 import { Switch, Navbar, Text, useTheme, Dropdown } from "@nextui-org/react";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Link from "next/link";
@@ -57,8 +57,7 @@ export default function NavBar({ dict }: { dict: any }) {
           <Switch
             checked={isDark}
             onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-            iconOn={<FontAwesomeIcon icon={faSun} />}
-            iconOff={<FontAwesomeIcon icon={faMoon} />}
+            icon={<FontAwesomeIcon icon={faMoon} />}
           />
         </Navbar.Item>
       </Navbar.Content>
