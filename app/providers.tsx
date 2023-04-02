@@ -7,14 +7,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const lightTheme = createTheme({
     type: "light",
     theme: {
-      colors: {}, // optional
+      colors: {},
     },
   });
 
   const darkTheme = createTheme({
     type: "dark",
     theme: {
-      colors: {}, // optional
+      colors: {},
     },
   });
 

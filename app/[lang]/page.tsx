@@ -5,7 +5,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
   const dict = await getDictionary(lang);
   return (
     <div>
-      <p>{dict.products.cart}</p>
+      <p></p>
     </div>
   );
 }

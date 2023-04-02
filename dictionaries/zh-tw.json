@@ -1,6 +1,33 @@
 {
-    "products": {
-      "cart": "加至購物車"
+  "brand": {
+    "companyName": "克萊登大學香港分校",
+    "departmentName": "歷史系"
+  },
+  "navItems": [
+    {
+      "itemName": "院系簡介",
+      "link": "introduction"
     },
-    "locale": {"lang": "繁體中文","code": "zh-tw"}
-  }
+    {
+      "itemName": "院系成員",
+      "link": "people"
+    },
+    {
+      "itemName": "本科",
+      "link": "undergraduate"
+    },
+    {
+      "itemName": "研究生",
+      "link": "graduate"
+    },
+    {
+      "itemName": "研究",
+      "link": "research"
+    },
+    {
+      "itemName": "活動",
+      "link": "activities"
+    }
+  ],
+  "locale": { "lang": "繁體中文", "code": "zh-tw" }
+}

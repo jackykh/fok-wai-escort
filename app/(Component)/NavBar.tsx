@@ -1,10 +1,18 @@
 "use client";
 
 import { useTheme as useNextTheme } from "next-themes";
-import { Switch, Navbar, Text, useTheme, Dropdown } from "@nextui-org/react";
+import {
+  Switch,
+  Navbar,
+  Text,
+  useTheme,
+  Dropdown,
+  Avatar,
+} from "@nextui-org/react";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
+import { faHorseHead } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 
 type LangsListType = Array<{
@@ -21,46 +29,101 @@ export default function NavBar({ dict }: { dict: any }) {
     { lang: "繁體中文", code: "zh-tw" },
   ];
 
-  const langListDropDown = (item: any) => {
+  const DropdownlangList = (item: any) => {
     return (
-      <Dropdown.Item key={item.lang}>
+      <Dropdown.Item key={uuidv4()}>
         <Link href={`\\${item.code}`} className="block w-full">
-          {item.lang}
+          <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
+            {item.lang}
+          </Text>
         </Link>
       </Dropdown.Item>
     );
   };
+  const DropdownMenu = (
+    <Dropdown.Menu items={langsList}>{DropdownlangList}</Dropdown.Menu>
+  );
+
+  const navBarLinks = dict.navItems.map((item: any) => (
+    <Navbar.Link key={uuidv4()} href={`\\${item.link}`}>
+      <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
+        {item.itemName}
+      </Text>
+    </Navbar.Link>
+  ));
+
+  const collaspeItems = [
+    <Navbar.CollapseItem key={uuidv4()}>
+      <Dropdown>
+        <Dropdown.Button
+          auto
+          color="gradient"
+          rounded
+          bordered
+          className="mr-4"
+        >
+          Language
+        </Dropdown.Button>
+        {DropdownMenu}
+      </Dropdown>
+      <Switch
+        checked={isDark}
+        color="secondary"
+        onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+        icon={<FontAwesomeIcon icon={faMoon} />}
+      />
+    </Navbar.CollapseItem>,
+    ...dict.navItems.map((item: any) => (
+      <Navbar.CollapseItem key={uuidv4()}>
+        <Link href={`\\${item.link}`} className="block w-full">
+          <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
+            {item.itemName}
+          </Text>
+        </Link>
+      </Navbar.CollapseItem>
+    )),
+  ];
 
   return (
     <Navbar shouldHideOnScroll variant="sticky">
       <Navbar.Brand>
-        <Text b color="inherit" hideIn="xs">
-          ACME {dict.locale.lang}
-        </Text>
+        <Avatar
+          squared
+          icon={<FontAwesomeIcon icon={faHorseHead} />}
+          className="mr-2"
+        />
+        <div className="flex flex-col">
+          <Text b color="inherit" size={"$base"}>
+            {dict.brand.companyName}
+          </Text>
+          <Text b color="inherit" size={"$base"}>
+            {dict.brand.departmentName}
+          </Text>
+        </div>
       </Navbar.Brand>
-      <Navbar.Content hideIn="xs" variant="underline" activeColor="default">
-        <Navbar.Link href="#">Features</Navbar.Link>
-        <Navbar.Link isActive href="#">
-          Customers
-        </Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Company</Navbar.Link>
+      <Navbar.Content variant="underline" activeColor="default" hideIn={"md"}>
+        {navBarLinks}
       </Navbar.Content>
-      <Navbar.Content>
-        <Dropdown>
-          <Dropdown.Button flat>Language</Dropdown.Button>
-          <Dropdown.Menu aria-label="Static Actions" items={langsList}>
-            {langListDropDown}
-          </Dropdown.Menu>
-        </Dropdown>
+      <Navbar.Content hideIn={"md"}>
+        <Navbar.Item>
+          <Dropdown>
+            <Dropdown.Button auto color="gradient" rounded bordered>
+              Language
+            </Dropdown.Button>
+            {DropdownMenu}
+          </Dropdown>
+        </Navbar.Item>
         <Navbar.Item>
           <Switch
             checked={isDark}
+            color="secondary"
             onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
             icon={<FontAwesomeIcon icon={faMoon} />}
           />
         </Navbar.Item>
       </Navbar.Content>
+      <Navbar.Toggle aria-label="toggle navigation" showIn={"md"} />
+      <Navbar.Collapse>{collaspeItems}</Navbar.Collapse>
     </Navbar>
   );
 }

@@ -1,6 +1,33 @@
 {
-    "products": {
-      "cart": "Add to Cart"
+  "brand": {
+    "companyName": "Clayton University HK",
+    "departmentName": "Department of History"
+  },
+  "navItems": [
+    {
+      "itemName": "Introduction",
+      "link": "introduction"
     },
-    "locale": {"lang": "English","code": "en-US"}
-  }
+    {
+      "itemName": "People",
+      "link": "people"
+    },
+    {
+      "itemName": "Undergraduate",
+      "link": "undergraduate"
+    },
+    {
+      "itemName": "Graduate",
+      "link": "graduate"
+    },
+    {
+      "itemName": "Research",
+      "link": "research"
+    },
+    {
+      "itemName": "Activities",
+      "link": "activities"
+    }
+  ],
+  "locale": { "lang": "English", "code": "en-US" }
+}
