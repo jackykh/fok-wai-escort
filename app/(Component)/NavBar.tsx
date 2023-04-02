@@ -55,23 +55,11 @@ export default function NavBar({ dict }: { dict: any }) {
   const collaspeItems = [
     <Navbar.CollapseItem key={uuidv4()}>
       <Dropdown>
-        <Dropdown.Button
-          auto
-          color="gradient"
-          rounded
-          bordered
-          className="mr-4"
-        >
+        <Dropdown.Button auto color="gradient" rounded bordered>
           Language
         </Dropdown.Button>
         {DropdownMenu}
       </Dropdown>
-      <Switch
-        checked={isDark}
-        color="secondary"
-        onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-        icon={<FontAwesomeIcon icon={faMoon} />}
-      />
     </Navbar.CollapseItem>,
     ...dict.navItems.map((item: any) => (
       <Navbar.CollapseItem key={uuidv4()}>
@@ -104,8 +92,8 @@ export default function NavBar({ dict }: { dict: any }) {
       <Navbar.Content variant="underline" activeColor="default" hideIn={"md"}>
         {navBarLinks}
       </Navbar.Content>
-      <Navbar.Content hideIn={"md"}>
-        <Navbar.Item>
+      <Navbar.Content>
+        <Navbar.Item hideIn={"md"}>
           <Dropdown>
             <Dropdown.Button auto color="gradient" rounded bordered>
               Language
@@ -121,8 +109,9 @@ export default function NavBar({ dict }: { dict: any }) {
             icon={<FontAwesomeIcon icon={faMoon} />}
           />
         </Navbar.Item>
+        <Navbar.Toggle aria-label="toggle navigation" showIn={"md"} />
       </Navbar.Content>
-      <Navbar.Toggle aria-label="toggle navigation" showIn={"md"} />
+
       <Navbar.Collapse>{collaspeItems}</Navbar.Collapse>
     </Navbar>
   );
