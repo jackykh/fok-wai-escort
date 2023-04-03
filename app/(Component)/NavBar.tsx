@@ -80,14 +80,9 @@ export default function NavBar({ dict }: { dict: any }) {
           icon={<FontAwesomeIcon icon={faHorseHead} />}
           className="mr-2"
         />
-        <div className="flex flex-col">
-          <Text b color="inherit" size={"$base"}>
-            {dict.brand.companyName}
-          </Text>
-          <Text b color="inherit" size={"$base"}>
-            {dict.brand.departmentName}
-          </Text>
-        </div>
+        <Text b color="inherit" size={"$lg"}>
+          {dict.brand.companyName}
+        </Text>
       </Navbar.Brand>
       <Navbar.Content variant="underline" activeColor="default" hideIn={"md"}>
         {navBarLinks}

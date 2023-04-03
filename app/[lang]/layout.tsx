@@ -13,7 +13,7 @@ export default async function Layout({
   return (
     <>
       <NavBar dict={dict} />
-      {children}
+      <main>{children}</main>
     </>
   );
 }

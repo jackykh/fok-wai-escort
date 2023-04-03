@@ -1,11 +1,9 @@
 import { getDictionary } from "@/dictionaries/dictionaries";
+import Header from "../(Component)/Header";
 
 export default async function Home({ params }: { params: { lang: string } }) {
   const lang = params.lang;
   const dict = await getDictionary(lang);
-  return (
-    <div>
-      <p></p>
-    </div>
-  );
+
+  return <Header dict={dict} />;
 }

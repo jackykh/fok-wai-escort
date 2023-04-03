@@ -1,33 +1,27 @@
 {
   "brand": {
-    "companyName": "克萊登大學香港分校",
-    "departmentName": "歷史系"
+    "companyName": "福威鏢局",
+    "slogan": "護航您的旅程，守護您的成功",
+    "subtitle": "值得信賴的武術護送，為您的珍貴貨物和安全商業冒險保駕護航"
   },
   "navItems": [
     {
-      "itemName": "院系簡介",
+      "itemName": "公司簡介",
       "link": "introduction"
     },
     {
-      "itemName": "院系成員",
+      "itemName": "公司成員",
       "link": "people"
     },
     {
-      "itemName": "本科",
-      "link": "undergraduate"
+      "itemName": "價格",
+      "link": "price"
     },
     {
-      "itemName": "研究生",
-      "link": "graduate"
-    },
-    {
-      "itemName": "研究",
-      "link": "research"
-    },
-    {
-      "itemName": "活動",
-      "link": "activities"
+      "itemName": "服務特色",
+      "link": "feature"
     }
   ],
+  "contactUs": "聯絡我們",
   "locale": { "lang": "繁體中文", "code": "zh-tw" }
 }

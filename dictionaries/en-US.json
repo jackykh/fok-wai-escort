@@ -1,7 +1,8 @@
 {
   "brand": {
-    "companyName": "Clayton University HK",
-    "departmentName": "Department of History"
+    "companyName": "Fok Wai Armed Escort",
+    "slogan": "Guarding Your Journey, Safeguarding Your Success",
+    "subtitle": "Experience Unparalleled Protection: Trusted Martial Escorts for Your Valuable Cargo and Secure Business Ventures"
   },
   "navItems": [
     {
@@ -13,21 +14,14 @@
       "link": "people"
     },
     {
-      "itemName": "Undergraduate",
-      "link": "undergraduate"
+      "itemName": "Price",
+      "link": "price"
     },
     {
-      "itemName": "Graduate",
-      "link": "graduate"
-    },
-    {
-      "itemName": "Research",
-      "link": "research"
-    },
-    {
-      "itemName": "Activities",
-      "link": "activities"
+      "itemName": "Feature",
+      "link": "feature"
     }
   ],
+  "contactUs": "Contact Us",
   "locale": { "lang": "English", "code": "en-US" }
 }
