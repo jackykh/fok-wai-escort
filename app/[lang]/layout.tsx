@@ -12,8 +12,10 @@ export default async function Layout({
   const dict = await getDictionary(lang);
   return (
     <>
-      <NavBar dict={dict} />
-      <main>{children}</main>
+      <main>
+        <NavBar dict={dict} />
+        {children}
+      </main>
     </>
   );
 }

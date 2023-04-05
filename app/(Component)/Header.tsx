@@ -5,7 +5,7 @@ import { Button } from "@nextui-org/react";
 
 export default function Header({ dict }: { dict: any }) {
   return (
-    <section className="relative h-[40rem]">
+    <section className="relative h-[30rem] lg:h-[40rem]">
       <Image
         src={bg}
         alt="bg"

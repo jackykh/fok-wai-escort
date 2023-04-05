@@ -73,7 +73,7 @@ export default function NavBar({ dict }: { dict: any }) {
   ];
 
   return (
-    <Navbar shouldHideOnScroll variant="sticky">
+    <Navbar variant="sticky" isBordered maxWidth={"fluid"}>
       <Navbar.Brand>
         <Avatar
           squared
@@ -84,11 +84,11 @@ export default function NavBar({ dict }: { dict: any }) {
           {dict.brand.companyName}
         </Text>
       </Navbar.Brand>
-      <Navbar.Content variant="underline" activeColor="default" hideIn={"md"}>
+      <Navbar.Content variant="underline" activeColor="default" hideIn={"sm"}>
         {navBarLinks}
       </Navbar.Content>
       <Navbar.Content>
-        <Navbar.Item hideIn={"md"}>
+        <Navbar.Item hideIn={"sm"}>
           <Dropdown>
             <Dropdown.Button auto color="gradient" rounded bordered>
               Language
@@ -104,7 +104,7 @@ export default function NavBar({ dict }: { dict: any }) {
             icon={<FontAwesomeIcon icon={faMoon} />}
           />
         </Navbar.Item>
-        <Navbar.Toggle aria-label="toggle navigation" showIn={"md"} />
+        <Navbar.Toggle aria-label="toggle navigation" showIn={"sm"} />
       </Navbar.Content>
 
       <Navbar.Collapse>{collaspeItems}</Navbar.Collapse>
