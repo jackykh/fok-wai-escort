@@ -22,6 +22,20 @@
       "link": "feature"
     }
   ],
+  "history": {
+    "title": "我們的歷史",
+    "foundedIn": "創立於1523年",
+    "location": "大明福建福州府",
+    "subtitle": "500年老店，歷史最悠久的鏢局",
+    "events": [
+      { "year": "1550年", "event": "福威鏢局業務擴展至江南地區" },
+      { "year": "1664年", "event": "明朝滅亡，福威鏢局組織民間抗清" },
+      { "year": "1814年", "event": "福威鏢局協助抗擊英國侵略者" },
+      { "year": "1911年", "event": "福威鏢局積極參與辛亥革命" },
+      { "year": "2013年", "event": "福威鏢局被列入中國國家非物質文化遺產名錄" }
+    ]
+  },
+  "learnMore": "了解更多",
   "contactUs": "聯絡我們",
   "ourClients": "我們的客戶",
   "locale": { "lang": "繁體中文", "code": "zh-tw" }

@@ -22,6 +22,35 @@
       "link": "feature"
     }
   ],
+  "history": {
+    "title": "Our History",
+    "foundedIn": "founded in 1523",
+    "location": "Great Ming Fujian",
+    "subtitle": "500-year-old Armed Escort Agency",
+    "events": [
+      {
+        "year": "1550",
+        "event": "The business of Fuwei expanded to the Jiangnan region"
+      },
+      {
+        "year": "1664",
+        "event": "Fuwei organized civilian resistance against the invading Qing troops"
+      },
+      {
+        "year": "1814",
+        "event": "Fuwei assisted in resisting British invaders"
+      },
+      {
+        "year": "1911",
+        "event": "Fuwei actively participated in the Xinhai Revolution"
+      },
+      {
+        "year": "2013",
+        "event": "Fuwei was listed in China's National Intangible Cultural Heritage List "
+      }
+    ]
+  },
+  "learnMore": "Learn More",
   "contactUs": "Contact Us",
   "ourClients": "Our Clients",
   "locale": { "lang": "English", "code": "en-US" }
