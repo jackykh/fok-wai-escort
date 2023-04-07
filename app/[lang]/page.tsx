@@ -6,50 +6,28 @@ import BBC from "@/public/logo-bbc.png";
 import bi from "@/public/logo-bi.png";
 import forbes from "@/public/logo-forbes.png";
 import techcrunch from "@/public/logo-techcrunch.png";
+import Timeline from "../(Component)/Timeline";
 
 import { v4 } from "uuid";
 
 const ClientsCarousel = ({ dict }: { dict: any }) => {
+  const logoImages = [BBC, bi, forbes, techcrunch].map((src) => (
+    <Image key={v4()} src={src} alt="logo" className="invert dark:invert-0" />
+  ));
+
   return (
-    <div className="mt-12 [&>*]:mb-12">
+    <section className="mt-12 [&>*]:mb-12">
       <div className="flex justify-center ">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans">
+        <h1 className="text-2xl xs:text-3xl lg:text-4xl font-sans">
           {dict.ourClients}
         </h1>
       </div>
       <div className="px-10">
         <div className="w-full overflow-hidden">
-          <ParallaxBrand
-            child={[
-              <Image
-                key={v4()}
-                src={BBC}
-                alt="logo"
-                className="invert dark:invert-0"
-              />,
-              <Image
-                key={v4()}
-                src={bi}
-                alt="logo"
-                className="invert dark:invert-0"
-              />,
-              <Image
-                key={v4()}
-                src={forbes}
-                alt="logo"
-                className="invert dark:invert-0"
-              />,
-              <Image
-                key={v4()}
-                src={techcrunch}
-                alt="logo"
-                className="invert dark:invert-0"
-              />,
-            ]}
-          />
+          <ParallaxBrand child={logoImages} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -61,7 +39,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
     <>
       <Header dict={dict} />
       <ClientsCarousel dict={dict} />
-      <div className="h-[100rem] bg-white dark:bg-gray-700"></div>
+      <Timeline dict={dict} />
     </>
   );
 }
