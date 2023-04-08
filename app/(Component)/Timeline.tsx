@@ -4,6 +4,7 @@ import clsx from "clsx";
 import HistoryCard1 from "./HistoryCard1";
 import HistoryCard from "./HistoryCard";
 import { useMediaQuery } from "react-responsive";
+import { motion, AnimatePresence } from "framer-motion";
 import jiangnan from "@/public/history/jiangnan.jpg";
 import kangqing from "@/public/history/kangqing.jpeg";
 import kangying from "@/public/history/kangying.jpeg";
@@ -13,10 +14,16 @@ import biaoju from "@/public/history/biaoju.jpg";
 interface TimelineItemProps {
   children: React.ReactNode;
   position: "left" | "right";
+  description: string;
 }
 
-const TimelineItem = ({ children, position }: TimelineItemProps) => {
+const TimelineItem = ({
+  children,
+  position,
+  description,
+}: TimelineItemProps) => {
   const isSmall = useMediaQuery({ query: "(min-width: 960px)" });
+
   let isLeft;
   let isRight;
   ///If samller than Small screen (960px), all items are put on the right side.
@@ -69,61 +76,23 @@ const TimelineItem = ({ children, position }: TimelineItemProps) => {
         "flex-1",
         isRight && "mr-10",
         isLeft && "ml-10",
-        "font-sans"
+        "font-sans",
+        "min-h-screen"
       )}
     >
-      <span>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Semper eget duis at
-        tellus at urna condimentum mattis. Morbi tempus iaculis urna id volutpat
-        lacus. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
-        fermentum. Magna fringilla urna porttitor rhoncus. Venenatis lectus
-        magna fringilla urna porttitor rhoncus dolor. Tempus egestas sed sed
-        risus pretium quam. At urna condimentum mattis pellentesque id nibh.
-        Proin nibh nisl condimentum id venenatis a condimentum vitae. Enim nec
-        dui nunc mattis enim ut tellus elementum. Turpis tincidunt id aliquet
-        risus feugiat in ante. Malesuada fames ac turpis egestas sed tempus.
-        Proin libero nunc consequat interdum varius. Gravida neque convallis a
-        cras semper auctor neque vitae tempus.
-        <br />
-        <br />
-        Arcu vitae elementum curabitur vitae nunc sed. Tempus iaculis urna id
-        volutpat lacus laoreet non curabitur gravida. Ipsum faucibus vitae
-        aliquet nec ullamcorper sit amet risus. Elit eget gravida cum sociis
-        natoque. Suscipit tellus mauris a diam maecenas sed. Posuere morbi leo
-        urna molestie at elementum eu. Nunc congue nisi vitae suscipit tellus
-        mauris. Commodo sed egestas egestas fringilla phasellus. Lectus proin
-        nibh nisl condimentum. Non odio euismod lacinia at quis risus sed
-        vulputate. In egestas erat imperdiet sed euismod nisi porta lorem.
-        Lectus nulla at volutpat diam ut venenatis tellus. Felis donec et odio
-        pellentesque diam volutpat commodo sed egestas. Odio facilisis mauris
-        sit amet massa vitae tortor condimentum lacinia. Sodales neque sodales
-        ut etiam sit. Eu ultrices vitae auctor eu augue ut lectus arcu.
-        <br />
-        <br />
-        Et netus et malesuada fames ac turpis. Libero justo laoreet sit amet.
-        Nibh tortor id aliquet lectus proin nibh nisl condimentum id. Mattis
-        ullamcorper velit sed ullamcorper morbi tincidunt. At augue eget arcu
-        dictum varius duis at consectetur. Tortor posuere ac ut consequat semper
-        viverra nam libero. Et sollicitudin ac orci phasellus egestas tellus
-        rutrum tellus. Sit amet risus nullam eget felis eget. Auctor urna nunc
-        id cursus metus aliquam eleifend mi in. Nisi scelerisque eu ultrices
-        vitae auctor eu augue. Lectus mauris ultrices eros in cursus.
-        <br />
-        <br />
-        Arcu non odio euismod lacinia. Dolor sit amet consectetur adipiscing
-        elit. Nunc mi ipsum faucibus vitae. Arcu dictum varius duis at
-        consectetur lorem donec massa. Nunc vel risus commodo viverra maecenas.
-        Scelerisque purus semper eget duis. Volutpat commodo sed egestas egestas
-        fringilla phasellus faucibus scelerisque. Dolor sit amet consectetur
-        adipiscing elit ut aliquam purus. Enim diam vulputate ut pharetra sit
-        amet aliquam id. Imperdiet massa tincidunt nunc pulvinar sapien. Elit
-        duis tristique sollicitudin nibh sit amet. Amet volutpat consequat
-        mauris nunc. Sagittis purus sit amet volutpat consequat mauris nunc
-        congue.
-      </span>
+      <motion.span
+        dangerouslySetInnerHTML={{ __html: description }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 2,
+          ease: "linear",
+        }}
+        viewport={{ once: true }}
+      />
     </div>
   );
+
   return (
     <div
       className={clsx(
@@ -159,6 +128,14 @@ const TimelineItem = ({ children, position }: TimelineItemProps) => {
   );
 };
 
+const des = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum dolor sit amet consectetur adipiscing. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Adipiscing tristique risus nec feugiat in fermentum posuere. Porttitor leo a diam sollicitudin. Nulla facilisi cras fermentum odio. Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Purus faucibus ornare suspendisse sed nisi. Nulla at volutpat diam ut venenatis tellus in.
+<br/>
+<br/>
+Libero volutpat sed cras ornare arcu dui. Ornare aenean euismod elementum nisi quis. Arcu cursus vitae congue mauris rhoncus aenean. Pretium vulputate sapien nec sagittis aliquam. Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Eget nunc lobortis mattis aliquam. Sed elementum tempus egestas sed. Sed arcu non odio euismod. Morbi tristique senectus et netus et malesuada fames ac turpis. In fermentum et sollicitudin ac orci. Tincidunt arcu non sodales neque sodales ut etiam sit amet. Semper viverra nam libero justo laoreet sit.
+<br/>
+<br/>
+Mattis enim ut tellus elementum sagittis vitae. Dolor purus non enim praesent. Mattis pellentesque id nibh tortor id aliquet. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Diam vulputate ut pharetra sit amet. At urna condimentum mattis pellentesque id. Nulla facilisi cras fermentum odio eu. Sed vulputate odio ut enim blandit volutpat maecenas. Nunc consequat interdum varius sit. Donec adipiscing tristique risus nec feugiat. In est ante in nibh mauris.`;
+
 const Timeline = ({ dict }: { dict: any }) => {
   return (
     <section className="my-10">
@@ -169,49 +146,51 @@ const Timeline = ({ dict }: { dict: any }) => {
       </div>
       <div className="w-full p-10 relative">
         <div className="absolute w-2 h-full bg-slate-400 sm:right-1/2 sm:translate-x-1/2 "></div>
-        <TimelineItem position="left">
-          <HistoryCard1 dict={dict} />
-        </TimelineItem>
-        <TimelineItem position="right">
-          <HistoryCard
-            time={dict.history.events[0].year}
-            event={dict.history.events[0].event}
-            img={jiangnan}
-            color="$blue300"
-          />
-        </TimelineItem>
-        <TimelineItem position="left">
-          <HistoryCard
-            time={dict.history.events[1].year}
-            event={dict.history.events[1].event}
-            img={kangqing}
-            color="$yellow300"
-          />
-        </TimelineItem>
-        <TimelineItem position="right">
-          <HistoryCard
-            time={dict.history.events[2].year}
-            event={dict.history.events[2].event}
-            img={kangying}
-            color="$gray300"
-          />
-        </TimelineItem>
-        <TimelineItem position="left">
-          <HistoryCard
-            time={dict.history.events[3].year}
-            event={dict.history.events[3].event}
-            img={xinhai}
-            color="$accents3"
-          />
-        </TimelineItem>
-        <TimelineItem position="right">
-          <HistoryCard
-            time={dict.history.events[4].year}
-            event={dict.history.events[4].event}
-            img={biaoju}
-            color="$cyan300"
-          />
-        </TimelineItem>
+        <AnimatePresence>
+          <TimelineItem position="left" description={dict.history.origin}>
+            <HistoryCard1 dict={dict} />
+          </TimelineItem>
+          <TimelineItem position="right" description={des}>
+            <HistoryCard
+              time={dict.history.events[0].year}
+              event={dict.history.events[0].event}
+              img={jiangnan}
+              color="$blue300"
+            />
+          </TimelineItem>
+          <TimelineItem position="left" description={des}>
+            <HistoryCard
+              time={dict.history.events[1].year}
+              event={dict.history.events[1].event}
+              img={kangqing}
+              color="$yellow300"
+            />
+          </TimelineItem>
+          <TimelineItem position="right" description={des}>
+            <HistoryCard
+              time={dict.history.events[2].year}
+              event={dict.history.events[2].event}
+              img={kangying}
+              color="$gray300"
+            />
+          </TimelineItem>
+          <TimelineItem position="left" description={des}>
+            <HistoryCard
+              time={dict.history.events[3].year}
+              event={dict.history.events[3].event}
+              img={xinhai}
+              color="$accents3"
+            />
+          </TimelineItem>
+          <TimelineItem position="right" description={des}>
+            <HistoryCard
+              time={dict.history.events[4].year}
+              event={dict.history.events[4].event}
+              img={biaoju}
+              color="$cyan300"
+            />
+          </TimelineItem>
+        </AnimatePresence>
       </div>
     </section>
   );
