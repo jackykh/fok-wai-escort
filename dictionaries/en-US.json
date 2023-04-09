@@ -2,7 +2,8 @@
   "brand": {
     "companyName": "Fok Wai Armed Escort",
     "slogan": "Guarding Your Journey, Safeguarding Your Success",
-    "subtitle": "Experience Unparalleled Protection: Trusted Martial Escorts for Your Valuable Cargo and Secure Business Ventures"
+    "subtitle": "Experience Unparalleled Protection: Trusted Martial Escorts for Your Valuable Cargo and Secure Business Ventures",
+    "introduction": "Fok Wai Armed Escort, a modern-style security service company, embraces its profound historical roots by seamlessly integrating the ancient traditions of armed escort services with contemporary technology. Established during the Zhengde period of the Ming Dynasty, Fok Wai Armed Escort's predecessor was a privately armed organization that specialized in transportation, martial arts, and security, providing safety escort and protection services for business organizations.<br/><br/>Today's Fok Wai Armed Escort still adheres to the partnership organizational structure, similar to law firms and accounting firms. In Fok Wai Armed Escort, security personnel, known as 'biaoshi', are rigorously trained through an apprenticeship system, possessing exceptional martial arts skills and keen insights to ensure the safety of clients' property. <br/><br/>As times change, Fok Wai Armed Escort continues to innovate and transform, applying cutting-edge technology to security services. Whether it's transporting silver or valuable goods, Fok Wai Armed Escort offers professional, safe, and reliable transportation services. Simultaneously, we strive to elevate our standing in the 'jianghu' (community), gaining greater respect and trust for our clients.<br/><br/>With a long history and extensive experience, Fok Wai Armed Escort always focuses on meeting clients' needs, committed to providing the highest quality security services. Be it the escort flags of the past or today's modern security facilities, Fok Wai Armed Escort will continue to shoulder the responsibility of protecting clients' property and safety."
   },
   "navItems": [
     {
@@ -56,6 +57,7 @@
       }
     ]
   },
+  "aboutUs": "About Us",
   "learnMore": "Learn More",
   "contactUs": "Contact Us",
   "ourClients": "Our Clients",
