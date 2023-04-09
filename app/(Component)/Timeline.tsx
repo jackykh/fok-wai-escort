@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import HistoryCard1 from "./HistoryCard1";
-import HistoryCard from "./HistoryCard";
+import { HistoryCard, HistoryEventType } from "./HistoryCard";
 import { useMediaQuery } from "react-responsive";
 import { motion, AnimatePresence } from "framer-motion";
 import jiangnan from "@/public/history/jiangnan.jpg";
@@ -88,7 +88,6 @@ const TimelineItem = ({
           duration: 2,
           ease: "linear",
         }}
-        viewport={{ once: true }}
       />
     </div>
   );
@@ -128,14 +127,6 @@ const TimelineItem = ({
   );
 };
 
-const des = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum dolor sit amet consectetur adipiscing. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Adipiscing tristique risus nec feugiat in fermentum posuere. Porttitor leo a diam sollicitudin. Nulla facilisi cras fermentum odio. Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Purus faucibus ornare suspendisse sed nisi. Nulla at volutpat diam ut venenatis tellus in.
-<br/>
-<br/>
-Libero volutpat sed cras ornare arcu dui. Ornare aenean euismod elementum nisi quis. Arcu cursus vitae congue mauris rhoncus aenean. Pretium vulputate sapien nec sagittis aliquam. Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Eget nunc lobortis mattis aliquam. Sed elementum tempus egestas sed. Sed arcu non odio euismod. Morbi tristique senectus et netus et malesuada fames ac turpis. In fermentum et sollicitudin ac orci. Tincidunt arcu non sodales neque sodales ut etiam sit amet. Semper viverra nam libero justo laoreet sit.
-<br/>
-<br/>
-Mattis enim ut tellus elementum sagittis vitae. Dolor purus non enim praesent. Mattis pellentesque id nibh tortor id aliquet. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Diam vulputate ut pharetra sit amet. At urna condimentum mattis pellentesque id. Nulla facilisi cras fermentum odio eu. Sed vulputate odio ut enim blandit volutpat maecenas. Nunc consequat interdum varius sit. Donec adipiscing tristique risus nec feugiat. In est ante in nibh mauris.`;
-
 const Timeline = ({ dict }: { dict: any }) => {
   return (
     <section className="my-10">
@@ -150,42 +141,57 @@ const Timeline = ({ dict }: { dict: any }) => {
           <TimelineItem position="left" description={dict.history.origin}>
             <HistoryCard1 dict={dict} />
           </TimelineItem>
-          <TimelineItem position="right" description={des}>
+          <TimelineItem
+            position="right"
+            description={dict.history.events[0].description}
+          >
             <HistoryCard
-              time={dict.history.events[0].year}
-              event={dict.history.events[0].event}
+              event={dict.history.events[0] as HistoryEventType}
+              buttonText={dict.learnMore}
               img={jiangnan}
               color="$blue300"
             />
           </TimelineItem>
-          <TimelineItem position="left" description={des}>
+          <TimelineItem
+            position="left"
+            description={dict.history.events[1].description}
+          >
             <HistoryCard
-              time={dict.history.events[1].year}
-              event={dict.history.events[1].event}
+              event={dict.history.events[1] as HistoryEventType}
+              buttonText={dict.learnMore}
               img={kangqing}
               color="$yellow300"
             />
           </TimelineItem>
-          <TimelineItem position="right" description={des}>
+          <TimelineItem
+            position="right"
+            description={dict.history.events[2].description}
+          >
             <HistoryCard
-              time={dict.history.events[2].year}
-              event={dict.history.events[2].event}
+              event={dict.history.events[2] as HistoryEventType}
+              buttonText={dict.learnMore}
               img={kangying}
               color="$gray300"
             />
           </TimelineItem>
-          <TimelineItem position="left" description={des}>
+          <TimelineItem
+            position="left"
+            description={dict.history.events[3].description}
+          >
             <HistoryCard
-              time={dict.history.events[3].year}
-              event={dict.history.events[3].event}
+              event={dict.history.events[3] as HistoryEventType}
+              buttonText={dict.learnMore}
               img={xinhai}
               color="$accents3"
             />
           </TimelineItem>
-          <TimelineItem position="right" description={des}>
+          <TimelineItem
+            position="right"
+            description={dict.history.events[4].description}
+          >
             <HistoryCard
-              time={dict.history.events[4].year}
-              event={dict.history.events[4].event}
+              event={dict.history.events[4] as HistoryEventType}
+              buttonText={dict.learnMore}
               img={biaoju}
               color="$cyan300"
             />
