@@ -66,7 +66,7 @@ const TimelineItem = ({
       "before:rotate-45",
       "before:translate-y-[-50%]",
       "before:right-full",
-      "before:translate-x-[50%]",
+      isSmall ? "before:translate-x-[50%]" : "before:translate-x-[65%]",
       "before:rounded-full",
     ],
   };
@@ -108,7 +108,6 @@ const TimelineItem = ({
           isSmall ? "w-1/2" : "w-full",
           isLeft && "pr-10",
           isRight && isSmall ? "pl-10" : "pl-6",
-          !isSmall && "ml-1",
           "h-[20rem]",
           isSmall && "sticky top-24"
         )}
