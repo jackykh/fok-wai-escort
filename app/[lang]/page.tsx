@@ -10,9 +10,14 @@ import Timeline from "../(Component)/Timeline";
 import { v4 } from "uuid";
 
 const ClientsCarousel = ({ dict }: { dict: any }) => {
-  const logoImages = [BBC, bi, forbes, techcrunch].map((src) => (
-    <Image key={v4()} src={src} alt="logo" className="invert dark:invert-0" />
-  ));
+  let imageTotalWidth = 0;
+
+  const logoImages = [BBC, bi, forbes, techcrunch].map((src) => {
+    imageTotalWidth += src.width;
+    return (
+      <Image key={v4()} src={src} alt="logo" className="invert dark:invert-0" />
+    );
+  });
 
   return (
     <section className="mt-12 [&>*]:mb-12">
@@ -23,7 +28,7 @@ const ClientsCarousel = ({ dict }: { dict: any }) => {
       </div>
       <div className="px-10">
         <div className="w-full overflow-hidden">
-          <ParallaxBrand child={logoImages} />
+          <ParallaxBrand child={logoImages} imageTotalWidth={imageTotalWidth} />
         </div>
       </div>
     </section>

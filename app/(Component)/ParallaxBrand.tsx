@@ -14,11 +14,13 @@ import { wrap } from "@motionone/utils";
 interface ParallaxProps {
   child: ReactNode[];
   baseVelocity?: number;
+  imageTotalWidth: number;
 }
 
 export default function ParallaxBrand({
   child,
   baseVelocity = 5,
+  imageTotalWidth,
 }: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -59,7 +61,7 @@ export default function ParallaxBrand({
   });
 
   return (
-    <div className="relative p-5" style={{ minWidth: child.length * 300 }}>
+    <div className="relative p-5" style={{ minWidth: imageTotalWidth * 0.7 }}>
       <motion.div className="absolute [&>*]:mr-10 flex" style={{ x }}>
         {child}
       </motion.div>
