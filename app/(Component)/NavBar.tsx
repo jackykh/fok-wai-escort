@@ -45,7 +45,7 @@ export default function NavBar({ dict }: { dict: any }) {
   );
 
   const navBarLinks = dict.navItems.map((item: any) => (
-    <Navbar.Link key={uuidv4()} href={`\\${item.link}`}>
+    <Navbar.Link key={uuidv4()} href={`\\${dict.locale.code}\\${item.link}`}>
       <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
         {item.itemName}
       </Text>
@@ -63,7 +63,10 @@ export default function NavBar({ dict }: { dict: any }) {
     </Navbar.CollapseItem>,
     ...dict.navItems.map((item: any) => (
       <Navbar.CollapseItem key={uuidv4()}>
-        <Link href={`\\${item.link}`} className="block w-full">
+        <Link
+          href={`\\${dict.locale.code}\\${item.link}`}
+          className="block w-full"
+        >
           <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
             {item.itemName}
           </Text>
