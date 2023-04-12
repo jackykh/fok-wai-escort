@@ -57,6 +57,44 @@
       }
     ]
   },
+  "people": {
+    "type": {
+      "leadership": "領導層",
+      "escorts": "鏢師"
+    },
+    "wangyuanji": {
+      "basicInfo": {
+        "name": "王元姬女士",
+        "position": "行政總裁",
+        "personId": "wangyuanji"
+      }
+    },
+    "linzhennan": {
+      "basicInfo": {
+        "name": "林震南先生",
+        "position": "總鏢頭",
+        "personId": "linzhennan"
+      }
+    },
+    "linpingzhi": {
+      "basicInfo": {
+        "name": "林平之先生",
+        "position": "少總鏢頭",
+        "personId": "linpingzhi"
+      }
+    },
+    "shibiaotou": {
+      "basicInfo": {
+        "name": "史鏢頭",
+        "position": "首席鏢師",
+        "personId": "biaotou"
+      }
+    }
+  },
+  "pages": {
+    "people": "公司成員",
+    "home": "主頁"
+  },
   "aboutUs": "關於我們",
   "learnMore": "了解更多",
   "contactUs": "聯絡我們",
