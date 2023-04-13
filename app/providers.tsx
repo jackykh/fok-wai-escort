@@ -1,10 +1,9 @@
 "use client";
 
-import { createTheme, NextUIProvider, useSSR } from "@nextui-org/react";
+import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const { isBrowser } = useSSR();
   const lightTheme = createTheme({
     type: "light",
     theme: {
@@ -30,7 +29,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         dark: darkTheme.className,
       }}
     >
-      {isBrowser && <NextUIProvider>{children}</NextUIProvider>}
+      <NextUIProvider>{children}</NextUIProvider>
     </NextThemesProvider>
   );
 }
