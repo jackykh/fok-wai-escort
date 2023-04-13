@@ -63,14 +63,14 @@ export default async function PeoplePage({
   const listGenerator = (arr: Array<listType>) =>
     arr.map((item) => (
       <li key={v4()}>
-        <Link href={`${dict.locale.code}\\people\\${item.info.personId}`}>
+        <Link href={`\\${dict.locale.code}\\people\\${item.info.personId}`}>
           <PeopleInfoBox peopleInfo={item.info} img={item.img} />
         </Link>
       </li>
     ));
 
   return (
-    <section className="py-10 px-10 [&>*]:mb-10 sm:px-36 flex flex-col items-center">
+    <div className="py-10 [&>*]:mb-10 flex flex-col items-center">
       <div className="flex justify-center">
         <h1 className="text-2xl xs:text-3xl lg:text-4xl font-sans">
           {dict.pages.people}
@@ -88,10 +88,12 @@ export default async function PeoplePage({
       </div>
       <div className="w-full">
         <div className="flex justify-start mb-10 p-2 border-b">
-          <h3 className="text-lg xs:text-xl lg:text-2xl font-sans">鏢師</h3>
+          <h3 className="text-lg xs:text-xl lg:text-2xl font-sans">
+            {dict.people.type.escorts}
+          </h3>
         </div>
         <ul className="flex flex-wrap [&>*]:mr-4">{listGenerator(escorts)}</ul>
       </div>
-    </section>
+    </div>
   );
 }
