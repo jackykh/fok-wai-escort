@@ -60,12 +60,18 @@ export default function ParallaxBrand({
     baseX.set(baseX.get() + moveBy);
   });
 
+  const totalWidth = imageTotalWidth + 40 * (child.length + 1);
+  // the width of all iamge plus the length margin right(40px) of all items
+
   return (
     <div
       className="relative p-5 overflow-hidden mx-auto"
-      style={{ width: imageTotalWidth }}
+      style={{ width: totalWidth }}
     >
-      <motion.div className="absolute [&>*]:mr-10 flex" style={{ x }}>
+      <motion.div
+        className="absolute [&>*]:mr-10 flex [&>*]:object-cover"
+        style={{ x }}
+      >
         {child}
       </motion.div>
       <motion.div className="[&>*]:mr-10 flex" style={{ x: x2 }}>
