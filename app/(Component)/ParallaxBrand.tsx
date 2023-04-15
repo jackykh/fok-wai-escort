@@ -63,7 +63,7 @@ export default function ParallaxBrand({
   return (
     <div
       className="relative p-5 overflow-hidden mx-auto"
-      style={{ height: 100, width: imageTotalWidth * 0.7 }}
+      style={{ width: imageTotalWidth }}
     >
       <motion.div className="absolute [&>*]:mr-10 flex" style={{ x }}>
         {child}
