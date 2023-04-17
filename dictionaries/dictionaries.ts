@@ -4,24 +4,20 @@ const dictionaries = {
   "zh-tw": () =>
     import("@/dictionaries/zh-tw.json").then((module) => module.default),
 };
+const defaultDict: keyof typeof dictionaries = "en-US";
 
-export const getDictionary = (<
-  T extends object,
-  defaultLangType extends keyof T
->(
-  dictionaries: T,
-  defaultLang: defaultLangType
-) => {
-  return async (locale: string) => {
-    const hasLocale = dictionaries.hasOwnProperty(locale);
-    let getDict;
-    if (hasLocale) {
-      getDict = dictionaries[locale as keyof T];
-    } else {
-      getDict = dictionaries[defaultLang];
-    }
-    if (typeof getDict === "function") {
-      return getDict();
-    }
-  };
-})(dictionaries, "en-US");
+type GetDictionaryReturnType = ReturnType<typeof dictionaries["en-US"]>;
+export type DictionaryType = Awaited<GetDictionaryReturnType>;
+
+export const getDictionary: (
+  locale: string
+) => GetDictionaryReturnType = async (locale) => {
+  let getDict;
+  if (dictionaries.hasOwnProperty(locale)) {
+    getDict = dictionaries[locale as keyof typeof dictionaries];
+    return getDict();
+  } else {
+    getDict = dictionaries[defaultDict];
+    return getDict();
+  }
+};
