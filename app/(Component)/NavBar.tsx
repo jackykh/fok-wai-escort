@@ -32,10 +32,11 @@ export default function NavBar({ dict }: { dict: any }) {
   const DropdownlangList = (item: any) => {
     return (
       <Dropdown.Item key={uuidv4()}>
-        <Link href={`\\${item.code}`} className="block w-full">
-          <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
-            {item.lang}
-          </Text>
+        <Link
+          href={`\\${item.code}`}
+          className="block w-full text-black dark:text-white"
+        >
+          {item.lang}
         </Link>
       </Dropdown.Item>
     );
@@ -46,9 +47,7 @@ export default function NavBar({ dict }: { dict: any }) {
 
   const navBarLinks = dict.navItems.map((item: any) => (
     <Navbar.Link key={uuidv4()} href={`\\${dict.locale.code}\\${item.link}`}>
-      <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
-        {item.itemName}
-      </Text>
+      <span className="text-black dark:text-white">{item.itemName}</span>
     </Navbar.Link>
   ));
 
@@ -65,11 +64,9 @@ export default function NavBar({ dict }: { dict: any }) {
       <Navbar.CollapseItem key={uuidv4()}>
         <Link
           href={`\\${dict.locale.code}\\${item.link}`}
-          className="block w-full"
+          className="block w-full text-black dark:text-white"
         >
-          <Text b color={`${isDark ? "white" : "black"}`} size={"$base"}>
-            {item.itemName}
-          </Text>
+          <span>{item.itemName}</span>
         </Link>
       </Navbar.CollapseItem>
     )),
@@ -83,9 +80,12 @@ export default function NavBar({ dict }: { dict: any }) {
           icon={<FontAwesomeIcon icon={faHorseHead} />}
           className="mr-2"
         />
-        <Text b color="inherit" size={"$lg"}>
-          {dict.brand.companyName}
-        </Text>
+        <Link
+          href={`\\${dict.locale.code}`}
+          className="text-black dark:text-white"
+        >
+          <b>{dict.brand.companyName}</b>
+        </Link>
       </Navbar.Brand>
       <Navbar.Content variant="underline" activeColor="default" hideIn={"sm"}>
         {navBarLinks}
