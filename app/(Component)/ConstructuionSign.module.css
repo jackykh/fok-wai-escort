@@ -1,0 +1,11 @@
+.stripe {
+  height: 2rem;
+  width: 100%;
+  background: linear-gradient(-60deg, black 10%, #fb3 10%, #fb3 50%, black 50%);
+  background-size: 12rem 100%;
+}
+.triangle {
+  fill: #fb3;
+  stroke: black;
+  stroke-width: 10;
+}
