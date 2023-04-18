@@ -1,5 +1,6 @@
 import { getDictionary } from "@/dictionaries/dictionaries";
 import { redirect } from "next/navigation";
+import ConstructionSign from "@/app/(Component)/ConstructionSign";
 
 const personPage = async ({
   params,
@@ -19,7 +20,7 @@ const personPage = async ({
 
   return (
     <section className="py-10 px-10 [&>*]:mb-10 sm:px-36 flex flex-col items-center h-[80rem]">
-      {params.personId}
+      <ConstructionSign content={dict.underConstruction} />
     </section>
   );
 };
