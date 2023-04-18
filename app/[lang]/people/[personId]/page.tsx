@@ -19,7 +19,7 @@ const personPage = async ({
   }
 
   return (
-    <section className="py-10 px-10 [&>*]:mb-10 sm:px-36 flex flex-col items-center h-[80rem]">
+    <section className="py-10 flex flex-col items-center h-[80rem]">
       <ConstructionSign content={dict.underConstruction} />
     </section>
   );

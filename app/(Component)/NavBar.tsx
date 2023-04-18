@@ -66,7 +66,10 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
           href={`/${dict.locale.code}/${item.link}`}
           className="block w-full text-black dark:text-white"
           onClick={() =>
-            navbarToggleRef.current && navbarToggleRef.current.click()
+            setTimeout(
+              () => navbarToggleRef.current && navbarToggleRef.current.click(),
+              0
+            )
           }
         >
           <span>{item.itemName}</span>
