@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { ReactNode, useRef } from "react";
 import { wrap } from "@motionone/utils";
+import { useMediaQuery } from "react-responsive";
 
 interface ParallaxProps {
   child: ReactNode[];
@@ -41,21 +42,26 @@ export default function ParallaxBrand({
     return `${wrap(-100, 100, v - 100)}%`;
   });
 
+  const isSmall = useMediaQuery({ query: "(min-width: 960px)" });
+
   const directionFactor = useRef<number>(1);
+
   useAnimationFrame((t, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-    /**
-     * This is what changes the direction of the scroll once we
-     * switch scrolling directions.
-     */
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
+    if (isSmall) {
+      /**
+       * This is what changes the direction of the scroll once we
+       * switch scrolling directions.
+       */
+      if (velocityFactor.get() < 0) {
+        directionFactor.current = -1;
+      } else if (velocityFactor.get() > 0) {
+        directionFactor.current = 1;
+      }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+      moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    }
 
     baseX.set(baseX.get() + moveBy);
   });
