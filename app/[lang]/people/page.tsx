@@ -65,7 +65,7 @@ export default async function PeoplePage({
   const listGenerator = (arr: Array<listType>) =>
     arr.map((item) => (
       <li key={v4()}>
-        <Link href={`\\${dict.locale.code}\\people\\${item.info.personId}`}>
+        <Link href={`/${dict.locale.code}/people/${item.info.personId}`}>
           <PeopleInfoBox peopleInfo={item.info} img={item.img} />
         </Link>
       </li>

@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import { DictionaryType } from "@/dictionaries/dictionaries";
+import { usePathname } from "next/navigation";
 
 type LangsListType = Array<{
   lang: string;
@@ -24,6 +25,10 @@ type LangsListType = Array<{
 export default function NavBar({ dict }: { dict: DictionaryType }) {
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
+  const pathname = usePathname();
+
+  const router = pathname.split("/").filter((v) => v.length > 0);
+  const href = router.slice(1, router.length + 1).join("/");
 
   const langsList: LangsListType = [
     { lang: "English", code: "en-US" },
@@ -34,7 +39,7 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
     return (
       <Dropdown.Item key={uuidv4()}>
         <Link
-          href={`\\${item.code}`}
+          href={`/${item.code}/${href}`}
           className="block w-full text-black dark:text-white"
         >
           {item.lang}
@@ -47,7 +52,7 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
   );
 
   const navBarLinks = dict.navItems.map((item: any) => (
-    <Navbar.Link key={uuidv4()} href={`\\${dict.locale.code}\\${item.link}`}>
+    <Navbar.Link key={uuidv4()} href={`/${dict.locale.code}/${item.link}`}>
       <span className="text-black dark:text-white">{item.itemName}</span>
     </Navbar.Link>
   ));
@@ -64,7 +69,7 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
     ...dict.navItems.map((item: any) => (
       <Navbar.CollapseItem key={uuidv4()}>
         <Link
-          href={`\\${dict.locale.code}\\${item.link}`}
+          href={`/${dict.locale.code}/${item.link}`}
           className="block w-full text-black dark:text-white"
         >
           <span>{item.itemName}</span>
@@ -82,7 +87,7 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
           className="mr-2"
         />
         <Link
-          href={`\\${dict.locale.code}`}
+          href={`/${dict.locale.code}`}
           className="text-black dark:text-white"
         >
           <b>{dict.brand.companyName}</b>
