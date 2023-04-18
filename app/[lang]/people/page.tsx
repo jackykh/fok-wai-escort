@@ -54,11 +54,13 @@ export default async function PeoplePage({
   const dict = await getDictionary(lang);
 
   const leadership = [
-    { info: dict.people.wangyuanji.basicInfo, img: female },
-    { info: dict.people.linzhennan.basicInfo, img: linzhennan },
-    { info: dict.people.linpingzhi.basicInfo, img: linpingzhi },
+    { info: dict.people.peopleInfo.wangyuanji.basicInfo, img: female },
+    { info: dict.people.peopleInfo.linzhennan.basicInfo, img: linzhennan },
+    { info: dict.people.peopleInfo.linpingzhi.basicInfo, img: linpingzhi },
   ];
-  const escorts = [{ info: dict.people.shibiaotou.basicInfo, img: male }];
+  const escorts = [
+    { info: dict.people.peopleInfo.shibiaotou.basicInfo, img: male },
+  ];
 
   const listGenerator = (arr: Array<listType>) =>
     arr.map((item) => (

@@ -7,10 +7,16 @@ const personPage = async ({
   params: { personId: string; lang: string };
 }) => {
   const dict = await getDictionary(params.lang);
-  const person = dict.people[params.personId];
-  if (!person) {
+  let person;
+  if (params.personId in dict.people.peopleInfo) {
+    person =
+      dict.people.peopleInfo[
+        params.personId as keyof typeof dict.people.peopleInfo
+      ];
+  } else {
     redirect("/404");
   }
+
   return (
     <section className="py-10 px-10 [&>*]:mb-10 sm:px-36 flex flex-col items-center h-[80rem]">
       {params.personId}
