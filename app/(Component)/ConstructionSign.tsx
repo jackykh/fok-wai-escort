@@ -12,7 +12,7 @@ const ConstructionSign = ({ content }: { content: string }) => {
           <svg width="250" height="250" viewBox="-50 -50 300 300">
             <polygon
               className={classes.triangle}
-              stroke-linejoin="round"
+              strokeLinejoin="round"
               points="100,0 0,200 200,200"
             />
           </svg>

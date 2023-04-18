@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import { DictionaryType } from "@/dictionaries/dictionaries";
 import { usePathname } from "next/navigation";
+import { useRef } from "react";
 
 type LangsListType = Array<{
   lang: string;
@@ -26,6 +27,7 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
   const pathname = usePathname();
+  const navbarToggleRef = useRef<HTMLButtonElement>(null);
 
   const router = pathname.split("/").filter((v) => v.length > 0);
   const href = router.slice(1, router.length + 1).join("/");
@@ -58,6 +60,19 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
   ));
 
   const collaspeItems = [
+    ...dict.navItems.map((item: any) => (
+      <Navbar.CollapseItem key={uuidv4()}>
+        <Link
+          href={`/${dict.locale.code}/${item.link}`}
+          className="block w-full text-black dark:text-white"
+          onClick={() =>
+            navbarToggleRef.current && navbarToggleRef.current.click()
+          }
+        >
+          <span>{item.itemName}</span>
+        </Link>
+      </Navbar.CollapseItem>
+    )),
     <Navbar.CollapseItem key={uuidv4()}>
       <Dropdown>
         <Dropdown.Button auto color="gradient" rounded bordered>
@@ -66,16 +81,6 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
         {DropdownMenu}
       </Dropdown>
     </Navbar.CollapseItem>,
-    ...dict.navItems.map((item: any) => (
-      <Navbar.CollapseItem key={uuidv4()}>
-        <Link
-          href={`/${dict.locale.code}/${item.link}`}
-          className="block w-full text-black dark:text-white"
-        >
-          <span>{item.itemName}</span>
-        </Link>
-      </Navbar.CollapseItem>
-    )),
   ];
 
   return (
@@ -113,7 +118,11 @@ export default function NavBar({ dict }: { dict: DictionaryType }) {
             icon={<FontAwesomeIcon icon={faMoon} />}
           />
         </Navbar.Item>
-        <Navbar.Toggle aria-label="toggle navigation" showIn={"sm"} />
+        <Navbar.Toggle
+          aria-label="toggle navigation"
+          showIn={"sm"}
+          ref={navbarToggleRef}
+        />
       </Navbar.Content>
 
       <Navbar.Collapse>{collaspeItems}</Navbar.Collapse>
