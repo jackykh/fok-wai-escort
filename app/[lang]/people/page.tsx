@@ -60,6 +60,12 @@ export default async function PeoplePage({
   ];
   const escorts = [
     { info: dict.people.peopleInfo.shibiaotou.basicInfo, img: male },
+    { info: dict.people.peopleInfo.zhengbiaotou.basicInfo, img: male },
+    { info: dict.people.peopleInfo.jibiaotou.basicInfo, img: male },
+    { info: dict.people.peopleInfo.cuibiaotou.basicInfo, img: male },
+    { info: dict.people.peopleInfo.fubiaotou.basicInfo, img: male },
+    { info: dict.people.peopleInfo.qianbiaotou.basicInfo, img: male },
+    { info: dict.people.peopleInfo.wubiaotou.basicInfo, img: male },
   ];
 
   const listGenerator = (arr: Array<listType>) =>

@@ -88,7 +88,49 @@
         "basicInfo": {
           "name": "史鏢頭",
           "position": "首席鏢師",
-          "personId": "biaotou"
+          "personId": "shibiaotou"
+        }
+      },
+      "zhengbiaotou": {
+        "basicInfo": {
+          "name": "鄭鏢頭",
+          "position": "高級鏢師",
+          "personId": "zhengbiaotou"
+        }
+      },
+      "jibiaotou": {
+        "basicInfo": {
+          "name": "季鏢頭",
+          "position": "高級鏢師",
+          "personId": "jibiaotou"
+        }
+      },
+      "cuibiaotou": {
+        "basicInfo": {
+          "name": "崔鏢頭",
+          "position": "高級鏢師",
+          "personId": "cuibiaotou"
+        }
+      },
+      "fubiaotou": {
+        "basicInfo": {
+          "name": "富鏢頭",
+          "position": "鏢師",
+          "personId": "cuibiaotou"
+        }
+      },
+      "qianbiaotou": {
+        "basicInfo": {
+          "name": "錢鏢頭",
+          "position": "鏢師",
+          "personId": "qianbiaotou"
+        }
+      },
+      "wubiaotou": {
+        "basicInfo": {
+          "name": "吳鏢頭",
+          "position": "鏢師",
+          "personId": "wubiaotou"
         }
       }
     }
