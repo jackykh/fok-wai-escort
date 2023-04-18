@@ -10,6 +10,7 @@ import kangqing from "@/public/history/kangqing.jpeg";
 import kangying from "@/public/history/kangying.jpeg";
 import xinhai from "@/public/history/xinhai.jpeg";
 import biaoju from "@/public/history/biaoju.jpg";
+import { DictionaryType } from "@/dictionaries/dictionaries";
 
 interface TimelineItemProps {
   children: React.ReactNode;
@@ -126,7 +127,7 @@ const TimelineItem = ({
   );
 };
 
-const Timeline = ({ dict }: { dict: any }) => {
+const Timeline = ({ dict }: { dict: DictionaryType }) => {
   return (
     <section className="my-10">
       <div className="flex justify-center px-10">

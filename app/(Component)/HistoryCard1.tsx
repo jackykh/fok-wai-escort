@@ -12,8 +12,9 @@ import {
 import Image from "next/image";
 import fuzhou from "@/public/history/fuzhou.jpg";
 import { useMediaQuery } from "react-responsive";
+import { DictionaryType } from "@/dictionaries/dictionaries";
 
-export const HistoryCard = ({ dict }: { dict: any }) => {
+export const HistoryCard = ({ dict }: { dict: DictionaryType }) => {
   const { setVisible, bindings } = useModal();
   const isSmall = useMediaQuery({ query: "(min-width: 960px)" });
 

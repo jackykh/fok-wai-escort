@@ -2,8 +2,9 @@
 import bg from "@/public/Background_with_line_wave_pattern_4.png";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
+import { DictionaryType } from "@/dictionaries/dictionaries";
 
-export default function Header({ dict }: { dict: any }) {
+export default function Header({ dict }: { dict: DictionaryType }) {
   return (
     <section className="relative h-[30rem] lg:h-[40rem]">
       <Image

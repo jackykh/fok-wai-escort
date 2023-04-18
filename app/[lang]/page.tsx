@@ -1,4 +1,4 @@
-import { getDictionary } from "@/dictionaries/dictionaries";
+import { getDictionary, DictionaryType } from "@/dictionaries/dictionaries";
 import Header from "../(Component)/Header";
 import ParallaxBrand from "../(Component)/ParallaxBrand";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import techcrunch from "@/public/logo-techcrunch.png";
 import Timeline from "../(Component)/Timeline";
 import { v4 } from "uuid";
 
-const ClientsCarousel = ({ dict }: { dict: any }) => {
+const ClientsCarousel = ({ dict }: { dict: DictionaryType }) => {
   let imageTotalWidth = 0;
 
   const logoImages = [BBC, bi, forbes, techcrunch].map((src) => {

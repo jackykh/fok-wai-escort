@@ -2,8 +2,9 @@
 import { usePathname } from "next/navigation";
 import { v4 } from "uuid";
 import Link from "next/link";
+import { DictionaryType } from "@/dictionaries/dictionaries";
 
-const NextBreadcrumbs = ({ dict }: { dict: any }) => {
+const NextBreadcrumbs = ({ dict }: { dict: DictionaryType }) => {
   const router = usePathname();
 
   function generateBreadcrumbs() {
@@ -26,15 +27,22 @@ const NextBreadcrumbs = ({ dict }: { dict: any }) => {
       const href = "/" + asPathNestedRoutes.slice(0, idx + 1).join("/");
       // The title will just be the route string for now
       const title = subpath;
+
       if (asPathNestedRoutes[idx - 1] === "people") {
-        const person = dict.people[title];
-        if (person) {
+        const peopleInfo = dict.people.peopleInfo;
+        let person;
+        if (title in peopleInfo) {
+          person = peopleInfo[title as keyof typeof peopleInfo];
           return crumblist.push({
             text: person.basicInfo.name,
           });
         }
       }
-      const page = dict.pages[title];
+      const pageInfo = dict.pages;
+      let page;
+      if (title in pageInfo) {
+        page = pageInfo[title as keyof typeof pageInfo];
+      }
       if (page) {
         let pageInfo;
         if (idx + 1 === asPathNestedRoutes.length) {
