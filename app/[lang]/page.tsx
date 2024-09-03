@@ -1,39 +1,11 @@
-import { getDictionary, DictionaryType } from "@/dictionaries/dictionaries";
+import { getDictionary } from "@/dictionaries/dictionaries";
 import Header from "../(Component)/Header";
-import ParallaxBrand from "../(Component)/ParallaxBrand";
-import Image from "next/image";
 import BBC from "@/public/logo-bbc.png";
 import bi from "@/public/logo-bi.png";
 import forbes from "@/public/logo-forbes.png";
 import techcrunch from "@/public/logo-techcrunch.png";
 import Timeline from "../(Component)/Timeline";
-import { v4 } from "uuid";
-
-const ClientsCarousel = ({ dict }: { dict: DictionaryType }) => {
-  let imageTotalWidth = 0;
-
-  const logoImages = [BBC, bi, forbes, techcrunch].map((src) => {
-    imageTotalWidth += src.width;
-    return (
-      <Image key={v4()} src={src} alt="logo" className="invert dark:invert-0" />
-    );
-  });
-
-  return (
-    <section className="mt-12 [&>*]:mb-12">
-      <div className="flex justify-center ">
-        <h1 className="text-2xl xs:text-3xl lg:text-4xl font-sans">
-          {dict.ourClients}
-        </h1>
-      </div>
-      <div className="px-10">
-        <div className="w-full overflow-hidden">
-          <ParallaxBrand child={logoImages} imageTotalWidth={imageTotalWidth} />
-        </div>
-      </div>
-    </section>
-  );
-};
+import ClientsCarousel from "../(Component)/ClientsCarousel";
 
 const CompanyIntro = ({ dict }: { dict: any }) => {
   return (
@@ -60,7 +32,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
   return (
     <>
       <Header dict={dict} />
-      <ClientsCarousel dict={dict} />
+      <ClientsCarousel dict={dict} images={[BBC, bi, forbes, techcrunch]} />
       <CompanyIntro dict={dict} />
       <Timeline dict={dict} />
     </>
